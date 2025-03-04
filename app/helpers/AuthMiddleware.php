@@ -10,7 +10,7 @@ class AuthMiddleware{
     public static function Admin() {
         self::Authenticated();
         if ($_SESSION['user_role'] !== 'admin') {
-            header('Location: home');
+            header('Location: admin');
             exit();
         }
     }
