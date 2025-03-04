@@ -46,7 +46,7 @@ class User{
     }
 
     //List seluruh user terdaftar
-    public function getAllUsers() {
+    public function AllUsers() {
         $query = "SELECT id, name, email, role, created_at FROM " . $this->table;
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
