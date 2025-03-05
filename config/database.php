@@ -4,17 +4,17 @@ class Database {
     private $db_name = 'tabungan_db';
     private $username = 'root';
     private $password = '';
-    private $connect;
+    private $conn;
 
     public function connect(){
         try{
-            $this->connect = new PDO(
+            $this->conn = new PDO(
             "mysql:host={$this->host};dbname={$this->db_name}",
             $this->username,
             $this->password
         );
-        $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $this->connect;
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $this->conn;
     } catch(PDOException $e) {
         echo "Connection Error: " . $e->getMessage();
         return null;

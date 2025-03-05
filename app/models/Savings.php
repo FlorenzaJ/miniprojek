@@ -1,10 +1,10 @@
 <?php
 class Savings{
-    private $connection;
+    private $conn;
     private $table = 'savings';
 
-    public function _construct($database){
-        $this->connection = $database;
+    public function __construct($database) {
+        $this->conn = $database;
     }
 
     //Tambah savings
@@ -24,9 +24,10 @@ class Savings{
     }
 
     public function history($user_id){
-        $query = "SELECT * FROM {$this->table} WHERE user_id = :user_id ORDER BY created_at DESC";
-        $stmt = $this->connection->prepare($query);
-        $stmt->execute([$user_id]);
+        $query = "SELECT * FROM " . $this->table . " WHERE user_id = :user_id ORDER BY created_at DESC";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -35,7 +36,7 @@ class Savings{
         $query = "SELECT d.*, u.name FROM " . $this->table . " d
                   JOIN users u ON d.user_id = u.id
                   ORDER BY d.created_at DESC";
-        $stmt = $this->connection->prepare($query);
+        $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

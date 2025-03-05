@@ -51,7 +51,7 @@ class AuthController {
         $stmt = $this->database->prepare($query);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result['count'] === '0';
+        return $result['count'] === 0;
     }
 
     public function logout() {

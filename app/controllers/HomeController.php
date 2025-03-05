@@ -3,10 +3,10 @@ class HomeController{
     private $database;
     private $savingsModel;
 
-    public function _construct(){
+    public function __construct(){
         $database=new Database();
         $this->database = $database->connect();
-        require_once 'app/models/Donation.php';
+        require_once 'app/models/Savings.php';
         $this->savingsModel = new Savings($this->database);
     }
 
@@ -15,8 +15,8 @@ class HomeController{
         require_once 'app/helpers/AuthMiddleware.php';
         AuthMiddleware::Authenticated();
         
-        $donations = $this->savingsModel->allSavings();
-        $isAdmin = $_SESSION['user_role'] === 'admin';
+        $savings = $this->savingsModel->allSavings();
+        $Admin = $_SESSION['user_role'] === 'admin';
         require_once 'app/views/home.php';
     }
 
@@ -25,7 +25,7 @@ class HomeController{
         AuthMiddleware::Admin();
         
         require_once 'app/models/User.php';
-        $userModel = new User($this->db);
+        $userModel = new User($this->database);
         $users = $userModel->AllUsers();
         $Savings = $this->savingsModel->allSavings();
         require_once 'app/views/admin.php';

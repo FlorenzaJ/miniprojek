@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Homepage - Savings</title>
-        <link rel="stylesheet" href="public\css/style.css">
+        <link rel="stylesheet" href="public/css/style.css">
     </head>
     <body>
         <nav>
@@ -31,7 +31,7 @@
                 <h3><?php echo htmlspecialchars($saving['name']); ?></h3>
                 <p>Amount: Rp<?php echo number_format($saving['amount']); ?></p>
                 <p>Message: <?php echo htmlspecialchars($saving['message']); ?></p>
-                <small>Date: <?php echo $sving['created_at']; ?></small>
+                <small>Date: <?php echo $saving['created_at']; ?></small>
             </div>
         <?php endforeach; ?>
     </main>

@@ -1,24 +1,24 @@
 <?php
 class User{
-    private $connection;
+    private $conn;
     private $table = 'users';
 
-    public function _construct($database){
-        $this->connection = $database;
+    public function __construct($database){
+        $this->conn = $database;
     }
 
     //Function untuk register user baru
     public function register($name, $email, $password, $role = 'user'){
 
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $hashed_Password = password_hash($password, PASSWORD_DEFAULT);
         $query = "INSERT INTO " . $this->table . " (name, email, password, role) 
                   VALUES (:name, :email, :password, :role)";
-        $stmt = $this->connection->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         //Bind placeholder dengan variabel
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $hashed_password);
+        $stmt->bindParam(':password', $hashed_Password);
         $stmt->bindParam(':role', $role);
 
         if($stmt->execute()) {
@@ -30,7 +30,7 @@ class User{
     //Function untuk Login
     public function login($email, $password) {
         $query = "SELECT * FROM " . $this->table . " WHERE email = :email";
-        $stmt = $this->connection->prepare($query);
+        $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
 

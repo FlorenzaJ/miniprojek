@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login - Savings Account</title>
-    <link rel="stylesheet" href="public\css/style.css">
+    <link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
     <nav>
@@ -27,3 +28,4 @@
     </main>
 </body>
 </html>
+

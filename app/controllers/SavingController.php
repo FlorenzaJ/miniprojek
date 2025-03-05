@@ -1,7 +1,7 @@
 <?php
 class SavingController{
     private $database;
-    provate $savingsModel;
+    private $savingsModel;
 
     public function __construct() {
         $database = new Database();
@@ -21,7 +21,7 @@ class SavingController{
             $message = $_POST['message'];
             $user_id = $_SESSION['user_id'];
 
-            if($this->SavingsModel->addSavings($user_id, $amount, $message)) {
+            if($this->savingsModel->addSavings($user_id, $amount, $message)) {
                 header('Location: home');
                 exit();
             }
