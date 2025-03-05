@@ -21,32 +21,4 @@ class AuthMiddleware{
             exit();
         }
     }
-
-    function isLoggedIn() {
-        if(isset($_SESSION['user_id'])) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    // Get current user ID
-    function getCurrentUserId() {
-        return $_SESSION['user_id'] ?? null;
-    }
-    
-    // Check if user has permission to access a resource
-    function checkPermission($resourceOwnerId) {
-        if(!isLoggedIn()) {
-            return false;
-        }
-        
-        // Admin can access all resources
-        if(isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
-            return true;
-        }
-        
-        // Regular users can only access their own resources
-        return $_SESSION['user_id'] == $resourceOwnerId;
-    }
 }

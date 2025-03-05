@@ -41,7 +41,7 @@
             </tbody>
         </table>
 
-        <h2>All Accounts</h2>
+        <h2>All Savings</h2>
         <table class="admin-table">
             <thead>
                 <tr>

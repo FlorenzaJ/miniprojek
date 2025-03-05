@@ -1,6 +1,4 @@
-/* ======== CSS Variables ======== */
 :root {
-    /* Colors */
     --primary: #2e3654;
     --primary-dark: #1e2440;
     --secondary: #6c5dd3;
@@ -13,25 +11,21 @@
     --border-light: #eaecf0;
     --card-bg: #ffffff;
     
-    /* Spacing */
     --spacing-xs: 4px;
     --spacing-sm: 8px;
     --spacing-md: 16px;
     --spacing-lg: 24px;
     --spacing-xl: 32px;
     
-    /* Border Radius */
     --border-radius-sm: 4px;
     --border-radius: 8px;
     --border-radius-lg: 12px;
     
-    /* Box Shadow */
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.03);
   }
   
-  /* ======== Reset & Base Styles ======== */
   * {
     margin: 0;
     padding: 0;
@@ -66,7 +60,6 @@
     pointer-events: none;
   }
   
-  /* ======== Typography ======== */
   h1, h2, h3, h4, h5, h6 {
     color: var(--text-light);
     margin-bottom: var(--spacing-md);

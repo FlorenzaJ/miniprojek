@@ -18,8 +18,6 @@ class HomeController{
         $savings = $this->savingsModel->allSavings();
         $Admin = $_SESSION['user_role'] === 'admin';
         require_once 'app/models/Savings.php';
-        $user_id = $_SESSION['user_id'];
-
         $savingsModel = new savings($this->database);
         $totalSavings = $savingsModel->getTotalSavings($_SESSION['user_id']);
         require_once 'app/views/home.php';
@@ -33,7 +31,8 @@ class HomeController{
         $userModel = new User($this->database);
         $users = $userModel->AllUsers();
         $savings = $this->savingsModel->allSavings();
-        
+        $savingsModel = new savings($this->database);
+        $totalSavings = $savingsModel->getTotalSavings($_SESSION['user_id']);
         require_once 'app/views/admin.php';
     }
 }

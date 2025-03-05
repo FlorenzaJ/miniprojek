@@ -24,20 +24,26 @@
         <?php endif; ?>
         </nav>
 
+
         <main>
-        <h2>Recent Savings</h2>
-        <div style="text-align: right; margin: 30px; font-weight:bold;">
+        <h2>My Savings</h2>
+        <div style="text-align: right; margin: 30px;">
                 <?php $totalSavings = $savingsModel->getTotalSavings($_SESSION['user_id']); ?>
                 <?php echo "Your Total Savings: Rp ", number_format($totalSavings, 2, ',', '.'); ?>
             </div>
+            <?php $user_id = $_SESSION['user_id'];
+            $savings = $savingsModel->getSavingsByUser($user_id); // Function to get savings for the user
+            ?>
+            
         <?php foreach($savings as $saving): ?>
             <div class="saving-card">
-                <h3><?php echo htmlspecialchars($saving['name']); ?></h3>
-                <p>Amount: Rp<?php echo number_format($saving['amount']); ?></p>
-                <p>Message: <?php echo htmlspecialchars($saving['message']); ?></p>
+                <h3><?php echo $_SESSION['user_name'];  ?></h3>
+                <p style="font-weight:500;">Amount: Rp<?php echo number_format($saving['amount']); ?></p>
+                <p style="font-weight:500;">Message: <?php echo htmlspecialchars($saving['message']); ?></p>
                 <small>Date: <?php echo $saving['created_at']; ?></small>
             </div>
         <?php endforeach; ?>
+
     </main>
     </body>
 </html>
