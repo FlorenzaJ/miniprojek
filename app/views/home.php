@@ -6,11 +6,11 @@
     </head>
     <body>
         <nav>
-            <h1>Savings Acoount</h1>
+            <h1>Savings Account</h1>
             <?php if(isset($_SESSION['user_id'])): ?>
             <div>
-                Welcome, <?php echo $_SESSION['user_name']; ?>
-                <?php if($_SESSION['user_role'] === 'admin'): ?>
+            <b>Welcome, <?php echo $_SESSION['user_name']; ?>
+            <?php if($_SESSION['user_role'] === 'admin'): ?></b>
                     <a href="admin">Admin Dashboard</a>
                 <?php endif; ?>
                 <a href="save">Save Up</a>
@@ -34,6 +34,10 @@
                 <small>Date: <?php echo $saving['created_at']; ?></small>
             </div>
         <?php endforeach; ?>
+            <div style="text-align: right; margin: 30px;">
+                <?php $totalSavings = $savingsModel->getTotalSavings($_SESSION['user_id']); ?>
+                <?php echo "Your Total Savings: Rp ", number_format($totalSavings, 2, ',', '.'); ?>
+            </div>
     </main>
     </body>
 </html>

@@ -23,8 +23,8 @@
                 <input type="password" name="password" required>
             </div>
             <button type="submit">Login</button>
+            <p>Don't have an account? <a href="register">Register</a></p>
         </form>
-        <p>Don't have an account? <a href="register">Register</a></p>
     </main>
 </body>
 </html>

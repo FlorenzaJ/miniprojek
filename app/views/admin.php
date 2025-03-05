@@ -23,6 +23,7 @@
                     <th>Email</th>
                     <th>Role</th>
                     <th>Created At</th>
+                    <th>Total Savings</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +34,8 @@
                         <td><?php echo htmlspecialchars($user['email']); ?></td>
                         <td><?php echo $user['role']; ?></td>
                         <td><?php echo $user['created_at']; ?></td>
+                        <td><?php $totalSavings = $savingsModel->getTotalSavings($user['id']); ?>
+                        <?php echo number_format($totalSavings, 2, ',', '.'); ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
