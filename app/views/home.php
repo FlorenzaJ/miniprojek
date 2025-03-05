@@ -26,6 +26,10 @@
 
         <main>
         <h2>Recent Savings</h2>
+        <div style="text-align: right; margin: 30px; font-weight:bold;">
+                <?php $totalSavings = $savingsModel->getTotalSavings($_SESSION['user_id']); ?>
+                <?php echo "Your Total Savings: Rp ", number_format($totalSavings, 2, ',', '.'); ?>
+            </div>
         <?php foreach($savings as $saving): ?>
             <div class="saving-card">
                 <h3><?php echo htmlspecialchars($saving['name']); ?></h3>
@@ -34,10 +38,6 @@
                 <small>Date: <?php echo $saving['created_at']; ?></small>
             </div>
         <?php endforeach; ?>
-            <div style="text-align: right; margin: 30px;">
-                <?php $totalSavings = $savingsModel->getTotalSavings($_SESSION['user_id']); ?>
-                <?php echo "Your Total Savings: Rp ", number_format($totalSavings, 2, ',', '.'); ?>
-            </div>
     </main>
     </body>
 </html>
