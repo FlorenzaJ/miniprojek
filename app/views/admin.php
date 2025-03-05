@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Dashboard - Savings Account</title>
+    <title>Admin Dashboard - All Accounts</title>
     <link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
     <nav>
-        <h1>Savings Account - Admin Dashboard</h1>
+        <h1>All Accounts - Admin Dashboard</h1>
         <div>
             <a href="home">Home</a>
             <a href="logout">Logout</a>

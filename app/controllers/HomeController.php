@@ -27,7 +27,7 @@ class HomeController{
         require_once 'app/models/User.php';
         $userModel = new User($this->database);
         $users = $userModel->AllUsers();
-        $Savings = $this->savingsModel->allSavings();
+        $savings = $this->savingsModel->allSavings();
         require_once 'app/views/admin.php';
     }
 }
