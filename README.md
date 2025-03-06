@@ -17,3 +17,6 @@ o Fitur utama yang telah diimplementasikan.
     - Logout ID
     - Dashboard Admin
     - Tampilan User-friendly
+
+Link github:
+https://github.com/FlorenzaJ/miniprojek.git
